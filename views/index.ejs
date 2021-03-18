@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listado de Peliculas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Listado de Peliculas</h1>
+    <ul>
+      <% for ( movie of movies ) { %>
+      <li><a href="/movies/detail/<%= movie.id %>"><%=movie.title%></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
