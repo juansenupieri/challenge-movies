@@ -7,11 +7,14 @@ const moviesController = {
         res.render('index', {
             movies });
       },
+
+
     detail: async (req, res) => {
         const id = req.params.id;
-        const movie = await db.Movie.findByPk(id);
-        const genre = await db.Genre.findByPk(movie.genre_id);
-        movie.genre = genre.name
+        const movie = await db.Movie.findByPk(id, {
+            include: [{association: "genero"}, {association: "actores"}],
+            raw: true,
+            nest: true });  
         res.render('detail', { 
             movie });
     }
