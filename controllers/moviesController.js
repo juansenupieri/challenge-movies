@@ -8,7 +8,6 @@ const moviesController = {
             movies });
       },
 
-
     detail: async (req, res) => {
         const id = req.params.id;
         const movie = await db.Movie.findByPk(id, {
@@ -17,7 +16,24 @@ const moviesController = {
             nest: true });  
         res.render('detail', { 
             movie });
+    },
+
+    create: async (req, res) => {
+        res.render('createMovie');
+      },
+    
+    save: async (req, res) => {
+        db.Movie.create({
+            title: req.body.titulo ,
+            awards: req.body.premios ,
+            release_date: req.body.fecha_estreno ,
+            genre_id: req.body.genero ,
+            length: req.body.duracion ,
+            rating: req.body.rating 
+        });
+        res.redirect( "/movies");
     }
+
     }; 
 
 module.exports = moviesController;
