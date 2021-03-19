@@ -1,0 +1,51 @@
+  
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crear Peliculas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Editar Pelicula</h1>
+    <form action="/movies/edit/<%=movie.id%>" method="POST">
+        <div>
+            <label for="">Titulo</label>
+            <input type="text" name="titulo" value="<%=movie.title%>">
+        </div>
+        <div>
+            <label for="">Premios</label>
+            <input type="text" name="premios" value="<%=movie.awards%>">
+        </div>
+        <div>
+            <label for="">Duración</label>
+            <input type="text" name="length" value="<%=movie.length%>">
+        </div>
+        <div>
+            <label for="">Rating</label>
+            <input type="text" name="rating" value="<%=movie.rating%>">
+        </div>
+        <div>
+            <label for="">Fecha de estreno</label>
+            <input type="date" name="duracion" value="<%=movie.release_date%>">
+        </div>
+        <div>
+            <label for="">Genero</label>
+            <select name="genero">
+                <option value="1">Comedia</option>
+                <option value="2">Terror</option>
+                <option value="3">Drama</option>
+                <option value="4">Acción</option>
+                <option value="5">Ciencia Ficción</option>
+                <option value="6" >Suspenso</option>
+                <option value="7">Animación</option>
+                <option value="8">Aventuras</option>
+                <option value="9">Acción</option>
+                <option value="10">Documental</option>
+                <option value="11">Fantasia</option>
+                <option value="12">Musical</option>
+            </select>
+        </div>
+        <button type="submit">Crear</button>
+    </form>
+  </body>
+</html>
