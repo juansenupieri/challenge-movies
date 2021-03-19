@@ -1,0 +1,30 @@
+  
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crear Peliculas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Registrarse</h1>
+    <form action="/users/register" method="POST">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label for="">Contraseña</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+          <label for="">Remember Token</label>
+          <input type="text" name="remember_token">
+      </div>
+        <button type="submit">Enviar!</button>
+    </form>
+  </body>
+</html>

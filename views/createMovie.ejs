@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,18 +30,11 @@
         <div>
             <label for="">Genero</label>
             <select name="genero">
-                <option value="1">Comedia</option>
-                <option value="2">Terror</option>
-                <option value="3">Drama</option>
-                <option value="4">Acción</option>
-                <option value="5">Ciencia Ficción</option>
-                <option value="6">Suspenso</option>
-                <option value="7">Animación</option>
-                <option value="8">Aventuras</option>
-                <option value="9">Acción</option>
-                <option value="10">Documental</option>
-                <option value="11">Fantasia</option>
-                <option value="12">Musical</option>
+               <% for ( let i = 0; i < peli.length ; i++) { %>
+                <option value="<%=peli[i].id%>">
+                    <%=peli[i].name%>
+                </option>
+                <% } %>
             </select>
         </div>
         <button type="submit">Crear</button>

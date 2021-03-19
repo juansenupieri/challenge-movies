@@ -19,7 +19,8 @@ const moviesController = {
     },
 
     create: async (req, res) => {
-        res.render('createMovie');
+        const peli = await db.Genre.findAll();
+    res.render('createMovie', { peli })
       },
     
     save: async (req, res) => {
