@@ -6,18 +6,25 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>Listado de Peliculas</h1>
-    <div><h3>Esta logueado: Juancito</h3>
-    <h4><a href="/users/logout">Cerrar sesión</a></h4>
+    <header>
+      <h1>Listado de Peliculas</h1>
+        <nav> 
+          <ul>
+            <li><a href="/users/register">Registrarse</a></li>
+            <li><a href="/users/login">Iniciar sesión</a></li>
+            <li><a href="/users/logout">Cerrar sesión</a></li>
+          </ul>
+        </nav>
+    </header>
     </div>
     <ul>
       <% for ( movie of movies ) { %>
       <li><a href="/movies/detail/<%= movie.id %>"><%=movie.title%></a></li>
       <% } %>
     </ul>
-    <h3><a href="/movies/create">Crear pelicula</a></h3>
-    <h3><a href="/users/register">Registrarse</a></h3>
-    <h3><a href="/users/login">Iniciar sesión</a></h3>
+    <ul>
+      <li><a href="/movies/create">Crear pelicula</a></li>
+    </ul>
   </div>
   </body>
 </html>

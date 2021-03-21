@@ -1,9 +1,9 @@
-function guestMiddleware ( req , res, next) {
-    if( req.session.usuarioLogueado != undefined) {
+function authMiddleware ( req , res, next) {
+    if( req.session.usuarioLogueado != undefined ) {
         next();
     } else {
-        res.send("Para acceder a esta página debes estar logueado")
+        res.render('auth')
     }
 } ;
 
-module.exports = guestMiddleware;
+module.exports = authMiddleware;

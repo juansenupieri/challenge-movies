@@ -44,3 +44,12 @@ login: async (req, res) => {
         else {  return res.render('login') }
         }
       },
+
+    function adminMiddleware ( req , res, next) { if (req.session.usuarioLogueado.id == 0){
+        next();
+        } else {
+        res.send("Debes ser administrador para acceder a esta sección")
+    }
+} ;
+
+module.exports = adminMiddleware;

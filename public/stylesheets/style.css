@@ -1,8 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: salmon;
+}
+
+nav ul {
+  background-color: brown;
+  display: flex;
+  list-style-type: disc;
+}
+
+nav ul li {
+  margin-right: 25px;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }

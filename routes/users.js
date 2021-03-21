@@ -8,12 +8,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/login', guestMiddleware,  usersController.form );
 router.post('/login', usersController.login );
 router.get('/logout', authMiddleware, usersController.logout );
-router.get('/register', usersController.register );
+router.get('/register', guestMiddleware, usersController.register );
 router.post('/register', usersController.save );
-// CHECK
-router.get('/check', function( req, res){
-    if ( req.session.usuarioLogueado == undefined){ res.send( "No estas Logueado")}
-    else { res.send("El usuario logueado es " + req.session.usuarioLogueado.email)}
-})
 
 module.exports = router;
