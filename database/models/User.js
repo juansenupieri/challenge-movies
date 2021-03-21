@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         remember_token:{
             type: DataTypes.STRING
+        },
+        rol: {
+            type: DataTypes.TINYINT
         }
     };
 

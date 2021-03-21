@@ -12,9 +12,6 @@ router.get('/', moviesController.list );
   //  req.session.numeroVisitas++ ;
 //    res.send('Session tiene el número ' + req.session.numeroVisitas); });
 
-router.get('/usuarioLogueado', function(req, res) {
-  res.send('Esta logueado: ' + req.session.usuarioLogueado);
-});
 
 
 

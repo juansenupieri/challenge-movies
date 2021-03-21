@@ -7,7 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var moviesRouter = require('./routes/movies');
-var logMiddleware = require('./middlewares/logMiddleware');
 var session = require( 'express-session');
 var app = express();
 
@@ -20,7 +19,6 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-app.use(logMiddleware);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

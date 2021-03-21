@@ -12,11 +12,16 @@ const usersController = {
         const usuarios = await db.User.findAll();
         for ( let i = 0; i < usuarios.length ; i++) {
           if ( usuarios[i].email == req.body.email ){
-            req.session.usuarioLogueado = Email;
-            res.redirect('/UsuarioLogueado')
+            req.session.usuarioLogueado = usuarios[i];
+            res.redirect('/movies')
           }
         }
-        res.render('userUndefined', {Email});
+        res.render('login');
+      },
+
+      logout: function (req,res) {
+        req.session.destroy();
+        return res.redirect('/');
       },
 
     register: async (req, res) => {
