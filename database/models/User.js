@@ -21,20 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     const config = {
-        tableName: 'actors',
+        tableName: 'users',
         timestamps: false
     };
 
-    const Actor = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
 
-    Actor.associate = function(models){
-        Actor.belongsToMany(models.Movie, {
-            as: "peliculas",
-            through: "actor_movie",
-            foreignKey: "actor_id",
-            otherKey: "movie_id",
-            timestamps: false
-        })
-      }
-    return Actor;
+    return User;
 };

@@ -12,7 +12,7 @@
       <li>Length: <%= movie.length %></li>
       <li>Release Date: <%= movie.release_date %></li>
       <li>Genere: <%=movie.genero.name%> </li>
-      <li>Actores: </li>
+      <li>Actores: <%=movie.actores.first_name%> <%=movie.actores.last_name%></li>
     </ul>
     <a href="/movies/edit/<%=movie.id%>"> <button>Editar pelicula</button></a>
     <form action="/movies/delete/<%=movie.id%>" method="POST">

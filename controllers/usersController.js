@@ -6,9 +6,18 @@ const usersController = {
         res.render('login');
       },
 
-    login: async (req, res) => {
-        res.redirect( "/movies");
-    },
+      login: async (req, res) => {
+        const Email = req.body.email;
+        const Password = req.body.password;
+        const usuarios = await db.User.findAll();
+        for ( let i = 0; i < usuarios.length ; i++) {
+          if ( usuarios[i].email == req.body.email ){
+            req.session.usuarioLogueado = Email;
+            res.redirect('/UsuarioLogueado')
+          }
+        }
+        res.render('userUndefined', {Email});
+      },
 
     register: async (req, res) => {
         res.render('register');
