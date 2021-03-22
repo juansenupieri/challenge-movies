@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,6 +15,16 @@
           </ul>
         </nav>
     </header>
+    <% if (typeof errors != 'undefined') { %>
+        <p style="color: red">ERROR</p>
+        <ul>
+          <% for ( let i = 0; i < errors.length ; i++){ %>
+            <li>
+              <%=errors[i].msg%>
+            </li>
+          <% } %>
+        </ul>
+    <% } %>
     <form action="/users/register" method="POST">
         <div>
             <label for="">Nombre</label>
@@ -29,10 +38,6 @@
             <label for="">Contraseña</label>
             <input type="password" name="password">
         </div>
-        <div>
-          <label for="">Remember Token</label>
-          <input type="text" name="remember_token">
-      </div>
         <button type="submit">Enviar!</button>
     </form>
     <h3><a href="/movies">Volver al inicio</a></h3>

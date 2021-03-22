@@ -1,3 +1,5 @@
+const { validationResult } = require('express-validator');
+
 {const db = require('../database/models');
 
 const usersController = {
@@ -29,14 +31,17 @@ const usersController = {
       },
     
     save: async (req, res) => {
+      let errors = validationResult(req);
+      if (errors.isEmpty()){
       db.User.create({
         name: req.body.name ,
         email: req.body.email ,
-        password: req.body.password ,
-        remember_token: req.body.remember_token
+        password: req.body.password
     });
-        res.redirect( "/users/login");
-    }
+        res.redirect( "/users/login"); } else {
+          return res.render('register', {errors: errors.errors});
+        }
+    } 
     }; 
 
 module.exports = usersController;}
