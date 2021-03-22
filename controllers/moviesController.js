@@ -5,7 +5,6 @@ const { validationResult } = require('express-validator');
 const moviesController = {
     list: async (req, res) => {
         const movies = await db.Movie.findAll();
-        console.log(movies);
         res.render('index', {
             movies });
       },
@@ -51,7 +50,7 @@ const moviesController = {
             movie });
     },
     recreate: async (req, res) => {
-        db.Movie.update({
+       await db.Movie.update({
             title: req.body.titulo ,
             awards: req.body.premios ,
             release_date: req.body.fecha_estreno ,
@@ -62,7 +61,7 @@ const moviesController = {
         res.redirect( "/movies/detail/"+req.params.id)
     },
     delete: async (req, res) => {
-        db.Movie.destroy({ where: { id: req.params.id} });
+        await db.Movie.destroy({ where: { id: req.params.id}});
         res.redirect( "/movies");
     }
     }; 

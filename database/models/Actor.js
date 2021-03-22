@@ -33,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
             through: "actor_movie",
             foreignKey: "actor_id",
             otherKey: "movie_id",
-            timestamps: false
+            timestamps: false,
+            onDelete: 'CASCADE'
         })
       }
     return Actor;

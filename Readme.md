@@ -14,3 +14,25 @@
     };
 
 5) config.js : agregar 'module.exports =' y cambiar configuraciones;
+
+detail: async (req, res) => {
+        const id = req.params.id;
+        const movie = await db.Movie.findByPk(id, {
+            include: [{association: "genero"}, {association: "actores"}],
+            raw: true,
+            nest: true }); 
+        res.render('detail', { 
+            movie} );
+    },
+
+    <ul>
+      <li>Rating: <%= movie.rating %></li>
+      <li>Awards: <%= movie.awards %></li>
+      <li>Length: <%= movie.length %></li>
+      <li>Release Date: <%= movie.release_date %></li>
+      <li>Genere: <%=movie.genero.name%> </li>
+      <li>Actores: </li>
+    </ul>
+
+    
+      <li>Actores: <%=movie.actores.first_name%> <%=movie.actores.last_name%></li>

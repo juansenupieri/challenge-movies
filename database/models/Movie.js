@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
 
     const config = {
         tableName: 'movies',
-        timestamps: false
+        timestamps: false,
+        paranoid: true
     };
 
     const Movie = sequelize.define(alias, cols, config);
@@ -36,7 +37,9 @@ module.exports = (sequelize, DataTypes) => {
     Movie.associate = function(models){
       Movie.belongsTo( models.Genre, {
           foreignKey: 'genre_id',
-          as: 'genero'
+          as: 'genero',
+          paranoid: true,
+          onDelete: 'CASCADE'
       })
     
         Movie.belongsToMany(models.Actor, {
@@ -44,7 +47,8 @@ module.exports = (sequelize, DataTypes) => {
             through: "actor_movie",
             foreignKey: "movie_id",
             otherKey: "actor_id",
-            timestamps: false
+            timestamps: false,
+            paranoid: true
         })
    };
 
