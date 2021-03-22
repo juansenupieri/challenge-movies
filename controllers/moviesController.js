@@ -1,3 +1,5 @@
+const { validationResult } = require('express-validator');
+
 {const db = require('../database/models');
 
 const moviesController = {
@@ -24,6 +26,9 @@ const moviesController = {
       },
     
     save: async (req, res) => {
+        const peli = await db.Genre.findAll();
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
         db.Movie.create({
             title: req.body.titulo ,
             awards: req.body.premios ,
@@ -32,7 +37,9 @@ const moviesController = {
             length: req.body.duracion ,
             rating: req.body.rating 
         });
-        res.redirect( "/movies");
+        res.redirect( "/movies");} else {
+            return res.render('createMovie', {errors: errors.errors , peli});
+        }
     },
     edit: async (req, res) => {
         const id = req.params.id;

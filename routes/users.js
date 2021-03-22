@@ -8,7 +8,11 @@ const { check, validationResult, body} = require('express-validator');
 // LOGIN 
 router.get('/login', guestMiddleware,  usersController.form );
 router.post('/login', usersController.login );
+
+//LOGOUT
 router.get('/logout', authMiddleware, usersController.logout );
+
+//REGISTER
 router.get('/register', guestMiddleware, usersController.register );
 router.post('/register',[
     check('name').isLength({min:2}).withMessage('Debe registrar un nombre'),
