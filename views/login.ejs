@@ -15,6 +15,9 @@
           </ul>
         </nav>
     </header>
+    <% if (typeof usuarios != 'undefined') { %>
+      <p style="color: red;">CREDENCIALES INVÁLIDAS</p>
+  <% } %>
     <form action="/users/login" method="POST">
         <div>
             <label for="">Email</label>

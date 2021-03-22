@@ -13,12 +13,12 @@ const usersController = {
         const Password = req.body.password;
         const usuarios = await db.User.findAll();
         for ( let i = 0; i < usuarios.length ; i++) {
-          if ( usuarios[i].email == req.body.email ){
+          if ( usuarios[i].email == req.body.email & usuarios[i].password == req.body.password ){
             req.session.usuarioLogueado = usuarios[i];
             res.redirect('/movies')
           }
         }
-        res.render('login');
+        res.render('login', {usuarios:usuarios});
       },
 
       logout: function (req,res) {
